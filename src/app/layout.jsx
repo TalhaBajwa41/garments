@@ -1,11 +1,12 @@
-// pages/_app.js (add to existing)
-import Header from '../components/Header';
+import "./globals.css";
+import { CartProvider } from "../lib/cartContext";
 
-export default function App({ Component, pageProps }) {
+export default function RootLayout({ children }) {
   return (
-    <CartProvider>
-      <Header />
-      <Component {...pageProps} />
-    </CartProvider>
+    <html lang="en">
+      <body>
+        <CartProvider>{children}</CartProvider>
+      </body>
+    </html>
   );
 }
